@@ -18,9 +18,9 @@ alunos = Array.new
 arq_lines = arq.readlines()
 #puts arq_lines.class()
 
-# Setting up my regex to match -> 17/0112209    OSCAR ETCHEAVERRY BARBOSA MADUREIRA DA
-#                                SILVA
-matricula_re = /(\d{2})+\/+(\d{7})+\s+(.*)+(\n[A-Z]{5}?)/
+# Setting up my regex to match -> 17/0061001    LUCAS VINICIUS MAGALHÃES PINHEIRO
+
+matricula_re = /(\d{2}\/\d{7})\s(.*)/
 
 # Trying to find matchs for each line in the call list file
 arq_lines.each do |e|
@@ -36,3 +36,14 @@ arq_lines.each do |e|
     end
 end
 
+print alunos
+
+=begin
+# Trying to fix "DA SILVA" problem
+matricula_re = /\d{2}\/\d{7}\s.*\n(?<!\s)[A-Z]*/#([A-Z]{5}?)/
+arq_text = arq.read()
+
+m = steste.scan(matricula_re)
+
+print m
+=end
